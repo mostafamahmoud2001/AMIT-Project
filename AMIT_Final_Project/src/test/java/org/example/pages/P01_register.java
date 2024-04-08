@@ -8,18 +8,18 @@ import org.openqa.selenium.support.ui.Select;
 
 public class P01_register {
     private final WebDriver driver;
-    By genderMaleLoc = By.id("gender-male");
-    By genderFemaleLoc = By.id("gender-female");
-    By firstNameLoc = By.id("FirstName");
-    By lastNameLoc = By.id("LastName");
-    By dayOfBirthLoc = By.name("DateOfBirthDay");
-    By monthOfBirthLoc = By.name("DateOfBirthMonth");
-    By yearOfBirthLoc = By.name("DateOfBirthYear");
-    By emailLoc = By.id("Email");
-    By passwordLoc = By.id("Password");
-    By confirmPasswordLoc = By.id("ConfirmPassword");
-    By submitLoc = By.id("register-button");
-    By resultLoc = By.cssSelector("div.result");
+    By genderMaleLoc       = By.id("gender-male");
+    By genderFemaleLoc     = By.id("gender-female");
+    By firstNameLoc        = By.id("FirstName");
+    By lastNameLoc         = By.id("LastName");
+    By dayOfBirthLoc       = By.name("DateOfBirthDay");
+    By monthOfBirthLoc     = By.name("DateOfBirthMonth");
+    By yearOfBirthLoc      = By.name("DateOfBirthYear");
+    By emailLoc            = By.id("Email");
+    By passwordLoc         = By.id("Password");
+    By confirmPasswordLoc  = By.id("ConfirmPassword");
+    By submitLoc           = By.id("register-button");
+    By resultLoc           = By.cssSelector("div.result");
     public P01_register(WebDriver driver){
         this.driver = driver;
     }
