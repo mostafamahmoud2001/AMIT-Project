@@ -33,7 +33,6 @@ public class P01_register {
         }
         return null;
     }
-
     public WebElement getFirstNameLocation(){
         return driver.findElement(firstNameLoc);
     }

@@ -41,7 +41,6 @@ public class D02_loginStepDef {
         softAssert.assertTrue(homePage.accountTapIsDisplayed());
         softAssert.assertAll();
     }
-
     @Then("user could not login to the system")
     public void userCouldNotLoginToSystem(){
         String message = loginPage.getErrorMessageText();
