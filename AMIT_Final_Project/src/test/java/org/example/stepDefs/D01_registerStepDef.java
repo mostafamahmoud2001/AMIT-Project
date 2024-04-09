@@ -17,7 +17,8 @@ public class D01_registerStepDef {
     public void goToRegisterPage(){
        driver = new ChromeDriver();
        registerPage = new P01_register(driver);
-       driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().window().maximize();
        driver.get("https://demo.nopcommerce.com/register?returnUrl=%2F");
     }
 
@@ -62,11 +63,11 @@ public class D01_registerStepDef {
         SoftAssert softAssert = new SoftAssert();
         boolean actualText = registerPage.getResultText().contains("Your registration completed");
         boolean actualColor = registerPage.getResultColor().contains("76, 177, 124");
-
+        driver.quit();
         softAssert.assertEquals(actualText,true);
         softAssert.assertEquals(actualColor,true);
         softAssert.assertAll();
-        driver.quit();
+
     }
 
 }

@@ -20,6 +20,8 @@ public class D02_loginStepDef {
     @Given("user go to login page")
     public void userGoToLoginPage(){
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().window().maximize();
         loginPage = new P02_login(driver);
         homePage  = new P03_homePage(driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -36,22 +38,23 @@ public class D02_loginStepDef {
     public void userLoginToSystem(){
         String currentURL = driver.getCurrentUrl();
         boolean URL_Assert = currentURL.equals(homePage.getExpectedURL());
+        driver.quit();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(URL_Assert);
         softAssert.assertTrue(homePage.accountTapIsDisplayed());
         softAssert.assertAll();
-        driver.quit();
+
     }
     @Then("user could not login to the system")
     public void userCouldNotLoginToSystem(){
         String message = loginPage.getErrorMessageText();
         boolean actual = message.contains("Login was unsuccessful");
         String color = Color.fromString(loginPage.getErrorMessageColor()).asHex();
-
+        driver.quit();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(color,"#e4434b");
         softAssert.assertTrue(actual);
         softAssert.assertAll();
-        driver.quit();
+
     }
 }
