@@ -1,6 +1,5 @@
 package org.example.stepDefs;
 import org.example.pages.*;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -63,9 +62,11 @@ public class D01_registerStepDef {
         SoftAssert softAssert = new SoftAssert();
         boolean actualText = registerPage.getResultText().contains("Your registration completed");
         boolean actualColor = registerPage.getResultColor().contains("76, 177, 124");
+
         softAssert.assertEquals(actualText,true);
         softAssert.assertEquals(actualColor,true);
         softAssert.assertAll();
+        driver.quit();
     }
 
 }

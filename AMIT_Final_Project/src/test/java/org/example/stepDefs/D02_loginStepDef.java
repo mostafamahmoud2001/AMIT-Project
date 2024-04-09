@@ -40,6 +40,7 @@ public class D02_loginStepDef {
         softAssert.assertTrue(URL_Assert);
         softAssert.assertTrue(homePage.accountTapIsDisplayed());
         softAssert.assertAll();
+        driver.quit();
     }
     @Then("user could not login to the system")
     public void userCouldNotLoginToSystem(){
@@ -51,5 +52,6 @@ public class D02_loginStepDef {
         softAssert.assertEquals(color,"#e4434b");
         softAssert.assertTrue(actual);
         softAssert.assertAll();
+        driver.quit();
     }
 }

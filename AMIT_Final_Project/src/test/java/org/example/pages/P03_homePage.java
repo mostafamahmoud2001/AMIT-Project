@@ -1,7 +1,4 @@
 package org.example.pages;
-
-import io.cucumber.java.en.When;
-import org.checkerframework.common.value.qual.EnsuresMinLenIf;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,7 +24,7 @@ public class P03_homePage {
     }
     public List<WebElement> getProductsElements(){return driver.findElements(productListLoc);}
     public List<String> getPriceTextOfProduct(){
-        List<String> pricesList = new ArrayList<String>();
+        List<String> pricesList = new ArrayList<>();
         List<WebElement> productsList = getProductsElements();//Parent of each Card to make the code more scalable
         for(WebElement ele : productsList){
             // in each iteration access the child(Price Text) from the parent (Product Card)
