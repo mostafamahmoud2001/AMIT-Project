@@ -24,9 +24,7 @@ public class D01_registerStepDef {
 
 
     @When("^user select gender type(.*)$")
-    public void selectGenderType(String genderType) {
-        registerPage.getGenderLocation(genderType).click();
-    }
+    public void selectGenderType(String genderType) {registerPage.getGenderLocation(genderType).click();}
 
     @And("^user enter first name (.*) and last name (.*)$")
     public void enterNames(String firstName , String lastName){
@@ -59,9 +57,7 @@ public class D01_registerStepDef {
         registerPage.setConfirmPasswordField(confirmPassword);
     }
     @And("user clicks on register button")
-    public void clickRegisterButton(){
-        registerPage.submitButtonClick();
-    }
+    public void clickRegisterButton(){registerPage.submitButtonClick();}
     @Then("success message is displayed")
     public void successMessageDisplayed(){
         SoftAssert softAssert = new SoftAssert();

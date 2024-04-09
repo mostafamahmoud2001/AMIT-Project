@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class P01_register {
-    private final WebDriver driver;
     By genderMaleLoc       = By.id("gender-male");
     By genderFemaleLoc     = By.id("gender-female");
     By firstNameLoc        = By.id("FirstName");
@@ -20,6 +19,8 @@ public class P01_register {
     By confirmPasswordLoc  = By.id("ConfirmPassword");
     By submitLoc           = By.id("register-button");
     By resultLoc           = By.cssSelector("div.result");
+    private final WebDriver driver;
+
     public P01_register(WebDriver driver){
         this.driver = driver;
     }
