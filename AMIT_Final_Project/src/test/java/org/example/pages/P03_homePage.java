@@ -17,12 +17,15 @@ public class P03_homePage {
     By currenciesListLoc  = By.id("customerCurrency");
     By productListLoc     = By.className("product-item");
     By priceTextLoc       = By.className("actual-price");
-    By productTitleLoc       = By.className("product-title");
+    By productTitleLoc    = By.className("product-title");
     By searchBoxLoc       = By.cssSelector("input#small-searchterms");
     By searchBtnLoc       = By.cssSelector("button.search-box-button");
     By skuTextLoc         = By.cssSelector("div.sku span.value");
-    By pageTitleLoc = By.cssSelector("div.page-title");
-    List<By> categories = new ArrayList<By>(){
+    By pageTitleLoc       = By.cssSelector("div.page-title");
+    By sliderImage1Loc    = By.cssSelector("img[class=\"nivo-main-image\"][src=\"https://demo.nopcommerce.com/images/thumbs/0000088_banner_01.webp\"]");
+    By sliderImage2Loc    = By.cssSelector("img[class=\"nivo-main-image\"][src=\"https://demo.nopcommerce.com/images/thumbs/0000089_banner_02.webp\"]");
+    By homePageLogoLoc    = By.cssSelector("img[alt=\"nopCommerce demo store\"]");
+    List<By> categories   = new ArrayList<By>(){
     {
         add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Computers \"]"));
         add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Electronics \"]"));
@@ -112,5 +115,13 @@ public class P03_homePage {
     public String getPageTitleText(){
         return driver.findElement(pageTitleLoc).getText();
     }
-
+    public By getSliderImage1(){
+        return sliderImage1Loc;
+    }
+    public By getSliderImage2(){
+        return sliderImage2Loc;
+    }
+    public By getHomePageLogoLoc(){
+        return homePageLogoLoc;
+    }
 }
