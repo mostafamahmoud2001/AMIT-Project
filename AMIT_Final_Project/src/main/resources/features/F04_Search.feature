@@ -17,7 +17,7 @@ Feature:
     And Click On the product
     Then Search shows relevant SKU results <SKU>
     Examples:
-      | SKU          |
+      |     SKU      |
       |   SCI_FAITH  |
       |   APPLE_CAM  |
       |   SF_PRO_11  |

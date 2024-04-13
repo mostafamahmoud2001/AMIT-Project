@@ -2,10 +2,14 @@ package org.example.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import javax.swing.*;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class P03_homePage {
     String homePageURL    = "https://demo.nopcommerce.com/";
@@ -17,6 +21,18 @@ public class P03_homePage {
     By searchBoxLoc       = By.cssSelector("input#small-searchterms");
     By searchBtnLoc       = By.cssSelector("button.search-box-button");
     By skuTextLoc         = By.cssSelector("div.sku span.value");
+    By pageTitleLoc = By.cssSelector("div.page-title");
+    List<By> categories = new ArrayList<By>(){
+    {
+        add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Computers \"]"));
+        add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Electronics \"]"));
+        add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Apparel \"]"));
+        add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Digital downloads \"]"));
+        add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Books \"]"));
+        add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Jewelry \"]"));
+        add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Gift Cards \"]"));
+    }
+    };
     private final WebDriver driver;
 
     public P03_homePage(WebDriver driver) {this.driver = driver;}
@@ -57,4 +73,44 @@ public class P03_homePage {
     public void clickOnTheProductWithIndex(int index){
         getProductsElements().get(index).click();
     }
+
+    public String setCategories() throws InterruptedException {
+        String category= "";
+        Random random = new Random();
+        int randIndex = random.nextInt(categories.size());
+        By loc = categories.get(randIndex);
+        WebElement ele = driver.findElement(loc);
+        System.out.println(ele.getText());
+        Actions action = new Actions(driver);
+        action.moveToElement(ele).perform();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        List<WebElement> sublistElements = ele.findElements(By.xpath("//parent::li/ul/li"));
+        sublistElements = cleaningList(sublistElements);
+        if(sublistElements.isEmpty()){
+            category= ele.getText();
+            ele.click();
+        }
+        else {
+            int rand = random.nextInt(sublistElements.size());
+            category= sublistElements.get(rand).getText();
+            sublistElements.get(rand).click();
+        }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        return category;
+    }
+    private List<WebElement> cleaningList(List<WebElement> list){
+        List<WebElement> newList = new ArrayList<>();
+        for (WebElement sublistItem : list) {
+            String sublistItemText = sublistItem.getText();
+            if (!sublistItemText.equalsIgnoreCase("")){
+                newList.add(sublistItem);
+            }
+        }
+        return newList;
+    }
+
+    public String getPageTitleText(){
+        return driver.findElement(pageTitleLoc).getText();
+    }
+
 }
