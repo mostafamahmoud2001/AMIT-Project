@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import javax.swing.*;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,8 +98,8 @@ public class P03_homePage {
         getProductsElements().get(index).click();
     }
 
-    public String setCategories() throws InterruptedException {
-        String category= "";
+    public String setCategories() {
+        String category;
         Random random = new Random();
         int randIndex = random.nextInt(categories.size());
         By loc = categories.get(randIndex);
