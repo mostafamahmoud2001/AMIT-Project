@@ -21,7 +21,7 @@ public class D05_hoverCategoriesStepDef {
         driver.get("https://demo.nopcommerce.com/");
     }
     @When("Select random category")
-    public void SelectRandomCategory() throws InterruptedException {
+    public void SelectRandomCategory() {
         categorySelected = homePage.setCategories();
     }
     @Then("The category page opens successfully")
