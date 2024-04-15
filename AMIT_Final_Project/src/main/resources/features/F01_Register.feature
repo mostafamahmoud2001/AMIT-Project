@@ -1,3 +1,4 @@
+@smoke
 Feature:
 Scenario Outline:  guest user could register with valid data successfully
   Given user go to register page

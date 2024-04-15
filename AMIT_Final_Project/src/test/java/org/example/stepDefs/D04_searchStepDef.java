@@ -13,6 +13,7 @@ public class D04_searchStepDef {
     P03_homePage homePage;
     WebDriver driver;
     String searchingProduct;
+
     @Given("Open HomePage")
     public void openHomePage(){
         driver = new ChromeDriver();

@@ -1,5 +1,5 @@
 Feature:
-
+  @smoke
   Scenario Outline: user could login with valid email and password
     Given user go to login page
     When  user login with <Email> and <Password>
