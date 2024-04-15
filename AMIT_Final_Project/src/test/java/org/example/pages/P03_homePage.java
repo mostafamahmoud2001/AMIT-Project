@@ -25,6 +25,11 @@ public class P03_homePage {
     By sliderImage1Loc    = By.cssSelector("img[class=\"nivo-main-image\"][src=\"https://demo.nopcommerce.com/images/thumbs/0000088_banner_01.webp\"]");
     By sliderImage2Loc    = By.cssSelector("img[class=\"nivo-main-image\"][src=\"https://demo.nopcommerce.com/images/thumbs/0000089_banner_02.webp\"]");
     By homePageLogoLoc    = By.cssSelector("img[alt=\"nopCommerce demo store\"]");
+    By facebookIconLoc    = By.xpath("//ul[@class=\"networks\"]/li/a[text()=\"Facebook\"]");
+    By twitterIconLoc     = By.xpath("//ul[@class=\"networks\"]/li/a[text()=\"Twitter\"]");
+    By rssIconLoc         = By.xpath("//ul[@class=\"networks\"]/li/a[text()=\"RSS\"]");
+    By youTubeIconLoc     = By.xpath("//ul[ @class=\"networks\"]/li/a[text()=\"YouTube\"]");
+
     List<By> categories   = new ArrayList<By>(){
     {
         add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Computers \"]"));
@@ -41,6 +46,23 @@ public class P03_homePage {
     public P03_homePage(WebDriver driver) {this.driver = driver;}
     public String getExpectedURL(){return homePageURL;}
     public boolean accountTapIsDisplayed(){return driver.findElement(myAccountTapLoc).isDisplayed();}
+
+    public By getFacebookIconLoc() {
+        return facebookIconLoc;
+    }
+
+    public By getTwitterIconLoc() {
+        return twitterIconLoc;
+    }
+
+    public By getRssIconLoc() {
+        return rssIconLoc;
+    }
+
+    public By getYouTubeIconLoc() {
+        return youTubeIconLoc;
+    }
+
     public void selectEuroFromList(){
         Select select = new Select(driver.findElement(currenciesListLoc));
         select.selectByVisibleText("Euro");
