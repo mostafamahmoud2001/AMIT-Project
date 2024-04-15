@@ -1,5 +1,4 @@
 package org.example.stepDefs;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -7,7 +6,6 @@ import org.example.pages.P03_homePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-
 import java.time.Duration;
 
 public class D05_hoverCategoriesStepDef {
@@ -26,7 +24,6 @@ public class D05_hoverCategoriesStepDef {
     public void SelectRandomCategory() throws InterruptedException {
         categorySelected = homePage.setCategories();
     }
-
     @Then("The category page opens successfully")
     public void categoryPageOpensSuccessfully(){
         String titleText = homePage.getPageTitleText();
@@ -34,7 +31,5 @@ public class D05_hoverCategoriesStepDef {
         categorySelected= categorySelected.toLowerCase().trim();
         driver.quit();
         Assert.assertEquals(titleText,categorySelected);
-
     }
-
 }

@@ -1,5 +1,4 @@
 package org.example.stepDefs;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,9 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.Color;
 import org.testng.asserts.SoftAssert;
-
 import java.time.Duration;
-
 public class D02_loginStepDef {
     P02_login loginPage;
     P03_homePage homePage;
@@ -43,7 +40,6 @@ public class D02_loginStepDef {
         softAssert.assertTrue(URL_Assert);
         softAssert.assertTrue(homePage.accountTapIsDisplayed());
         softAssert.assertAll();
-
     }
     @Then("user could not login to the system")
     public void userCouldNotLoginToSystem(){
@@ -55,6 +51,5 @@ public class D02_loginStepDef {
         softAssert.assertEquals(color,"#e4434b");
         softAssert.assertTrue(actual);
         softAssert.assertAll();
-
     }
 }

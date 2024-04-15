@@ -3,7 +3,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
 public class P01_register {
     By genderMaleLoc       = By.id("gender-male");
     By genderFemaleLoc     = By.id("gender-female");
@@ -18,7 +17,6 @@ public class P01_register {
     By submitLoc           = By.id("register-button");
     By resultLoc           = By.cssSelector("div.result");
     private final WebDriver driver;
-
     public P01_register(WebDriver driver){
         this.driver = driver;
     }

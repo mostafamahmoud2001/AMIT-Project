@@ -1,5 +1,4 @@
 package org.example.stepDefs;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.example.pages.P03_homePage;
@@ -9,9 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import java.time.Duration;
-
 public class D06_homeSlidersStepDef {
     P03_homePage homePage;
     WebDriver driver;
@@ -44,5 +41,4 @@ public class D06_homeSlidersStepDef {
         }
         driver.quit();
     }
-
 }

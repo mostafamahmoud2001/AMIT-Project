@@ -4,12 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 public class P03_homePage {
     String homePageURL    = "https://demo.nopcommerce.com/";
     By myAccountTapLoc    = By.cssSelector("a.ico-account");
@@ -28,7 +26,6 @@ public class P03_homePage {
     By twitterIconLoc     = By.xpath("//ul[@class=\"networks\"]/li/a[text()=\"Twitter\"]");
     By rssIconLoc         = By.xpath("//ul[@class=\"networks\"]/li/a[text()=\"RSS\"]");
     By youTubeIconLoc     = By.xpath("//ul[ @class=\"networks\"]/li/a[text()=\"YouTube\"]");
-
     List<By> categories   = new ArrayList<By>(){
     {
         add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Computers \"]"));
@@ -41,27 +38,13 @@ public class P03_homePage {
     }
     };
     private final WebDriver driver;
-
     public P03_homePage(WebDriver driver) {this.driver = driver;}
     public String getExpectedURL(){return homePageURL;}
     public boolean accountTapIsDisplayed(){return driver.findElement(myAccountTapLoc).isDisplayed();}
-
-    public By getFacebookIconLoc() {
-        return facebookIconLoc;
-    }
-
-    public By getTwitterIconLoc() {
-        return twitterIconLoc;
-    }
-
-    public By getRssIconLoc() {
-        return rssIconLoc;
-    }
-
-    public By getYouTubeIconLoc() {
-        return youTubeIconLoc;
-    }
-
+    public By getFacebookIconLoc()  {return facebookIconLoc;}
+    public By getTwitterIconLoc()   {return twitterIconLoc;}
+    public By getRssIconLoc()       {return rssIconLoc;}
+    public By getYouTubeIconLoc()   {return youTubeIconLoc;}
     public void selectEuroFromList(){
         Select select = new Select(driver.findElement(currenciesListLoc));
         select.selectByVisibleText("Euro");
@@ -94,10 +77,7 @@ public class P03_homePage {
     public String getSKUText(){
         return driver.findElement(skuTextLoc).getText();
     }
-    public void clickOnTheProductWithIndex(int index){
-        getProductsElements().get(index).click();
-    }
-
+    public void clickOnTheProductWithIndex(int index){getProductsElements().get(index).click();}
     public String setCategories() {
         String category;
         Random random = new Random();
@@ -132,7 +112,6 @@ public class P03_homePage {
         }
         return newList;
     }
-
     public String getPageTitleText(){
         return driver.findElement(pageTitleLoc).getText();
     }

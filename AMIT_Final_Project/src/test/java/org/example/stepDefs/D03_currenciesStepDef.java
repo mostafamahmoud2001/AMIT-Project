@@ -1,5 +1,4 @@
 package org.example.stepDefs;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -7,10 +6,8 @@ import junit.framework.Assert;
 import org.example.pages.P03_homePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.time.Duration;
 import java.util.List;
-
 public class D03_currenciesStepDef {
     WebDriver driver;
     P03_homePage homePage ;

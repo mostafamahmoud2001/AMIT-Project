@@ -1,5 +1,4 @@
 package org.example.stepDefs;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.asserts.SoftAssert;
 import java.time.Duration;
 import java.util.List;
-
 public class D04_searchStepDef {
     P03_homePage homePage;
     WebDriver driver;

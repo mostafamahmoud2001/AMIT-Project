@@ -1,5 +1,4 @@
 package org.example.stepDefs;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.example.pages.P03_homePage;
@@ -7,11 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-
 public class D07_followUsStepDef {
     P03_homePage homePage;
     WebDriver driver;
@@ -30,7 +27,6 @@ public class D07_followUsStepDef {
         else if (icon.contains("twitter"))  iconLoc = homePage.getTwitterIconLoc();
         else if (icon.contains("rss"))      iconLoc = homePage.getRssIconLoc();
         else if (icon.contains("youtube"))  iconLoc = homePage.getYouTubeIconLoc();
-
         driver.findElement(iconLoc).click();
         List<String> handles = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(handles.get(1));

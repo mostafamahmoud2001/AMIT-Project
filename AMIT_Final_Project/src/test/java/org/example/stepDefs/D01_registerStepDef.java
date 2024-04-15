@@ -6,10 +6,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.asserts.SoftAssert;
-
 import java.time.Duration;
 import java.util.Random;
-
 public class D01_registerStepDef {
     public ChromeDriver driver;
     P01_register registerPage;
@@ -21,26 +19,19 @@ public class D01_registerStepDef {
         driver.manage().window().maximize();
        driver.get("https://demo.nopcommerce.com/register?returnUrl=%2F");
     }
-
-
     @When("^user select gender type(.*)$")
     public void selectGenderType(String genderType) {registerPage.getGenderLocation(genderType).click();}
-
     @And("^user enter first name (.*) and last name (.*)$")
     public void enterNames(String firstName , String lastName){
         registerPage.getFirstNameLocation().sendKeys(firstName);
         registerPage.getLastNameLocation().sendKeys(lastName);
     }
-
-
     @And("user enter date of birth")
     public void enterDateOfBirth(){
         registerPage.selectDayOfBirth("10");
         registerPage.selectMonthOfBirth("February");
         registerPage.selectYearOfBirth("2001");
     }
-
-
     @And("^user enter email  field (.*)$")
     public void enterEmail(String email){
         //Adding a random number to email to make the email unique
@@ -67,8 +58,6 @@ public class D01_registerStepDef {
         softAssert.assertEquals(actualText,true);
         softAssert.assertEquals(actualColor,true);
         softAssert.assertAll();
-
     }
-
 }
 
