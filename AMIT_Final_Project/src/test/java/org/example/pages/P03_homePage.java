@@ -26,6 +26,11 @@ public class P03_homePage {
     By twitterIconLoc     = By.xpath("//ul[@class=\"networks\"]/li/a[text()=\"Twitter\"]");
     By rssIconLoc         = By.xpath("//ul[@class=\"networks\"]/li/a[text()=\"RSS\"]");
     By youTubeIconLoc     = By.xpath("//ul[ @class=\"networks\"]/li/a[text()=\"YouTube\"]");
+    By mobileLoc    = By.xpath("//a[text()=\"HTC One M8 Android L 5.0 Lollipop\"]");
+    By successMessTextLoc = By.xpath("//p[text()=\"The product has been added to your \"]");
+    By successMessContainerLoc = By.xpath("//p[text()=\"The product has been added to your \"]//parent::div");
+
+    By addToWishlistBtnLoc= By.id("add-to-wishlist-button-18");
     List<By> categories   = new ArrayList<By>(){
     {
         add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Computers \"]"));
@@ -45,6 +50,12 @@ public class P03_homePage {
     public By getTwitterIconLoc()   {return twitterIconLoc;}
     public By getRssIconLoc()       {return rssIconLoc;}
     public By getYouTubeIconLoc()   {return youTubeIconLoc;}
+    public By getAddToWishlistBtnLoc() {return addToWishlistBtnLoc;}
+    public By getSuccessMessTextLoc() {return successMessTextLoc;}
+    public By getSuccessMessContainerLoc() {return successMessContainerLoc;}
+
+    public By getMobileLoc() {return mobileLoc;}
+
     public void selectEuroFromList(){
         Select select = new Select(driver.findElement(currenciesListLoc));
         select.selectByVisibleText("Euro");
