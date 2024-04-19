@@ -11,4 +11,6 @@ import io.cucumber.testng.CucumberOptions;
         tags = "@smoke"
 )
 public class Main  extends AbstractTestNGCucumberTests {
+
 }
+

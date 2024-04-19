@@ -1,5 +1,6 @@
+@smoke
 Feature:  users could open followUs links
-  Scenario Outline: user opens facebook link
+  Scenario Outline: users could open followUs links
     Given open home page to followUs
     Then Click on <Icon Name> and the <Expected URL>
     Examples:

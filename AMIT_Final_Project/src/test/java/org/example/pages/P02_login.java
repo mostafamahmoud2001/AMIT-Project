@@ -6,6 +6,7 @@ public class P02_login {
     By passwordLoc        = By.id("Password");
     By loginBtnLoc        = By.className("login-button");
     By errorMessageLoc    = By.cssSelector("div.message-error");
+    public static String registeredUser = "";
     private final WebDriver driver;
     public P02_login(WebDriver driver) {this.driver = driver;}
     public void setEmailField(String email){driver.findElement(emailLoc).sendKeys(email);}

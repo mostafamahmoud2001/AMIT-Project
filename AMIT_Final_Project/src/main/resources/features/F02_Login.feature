@@ -1,5 +1,5 @@
+@smoke
 Feature:
-  @smoke
   Scenario Outline: user could login with valid email and password
     Given user go to login page
     When  user login with <Email> and <Password>
@@ -13,7 +13,7 @@ Feature:
 
   Scenario Outline: user could login with invalid email and password
     Given user go to login page
-    When  user login with <Email> and <Password>
+    When  user login using invalid <Email> and <Password>
     And   user press on login button
     Then  user could not login to the system
     Examples:

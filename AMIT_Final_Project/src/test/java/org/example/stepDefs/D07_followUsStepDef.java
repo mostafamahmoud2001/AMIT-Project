@@ -21,7 +21,7 @@ public class D07_followUsStepDef {
         driver.get("https://demo.nopcommerce.com/");
     }
     @Then("^Click on (.*) and the (.*)$")
-    public void clickOnIcon(String icon , String expectedURL){
+    public void clickOnIcon(String icon , String expectedURL) throws InterruptedException {
         By iconLoc = null;
         if(icon.contains("facebook"))       iconLoc = homePage.getFacebookIconLoc();
         else if (icon.contains("twitter"))  iconLoc = homePage.getTwitterIconLoc();
@@ -29,13 +29,17 @@ public class D07_followUsStepDef {
         else if (icon.contains("youtube"))  iconLoc = homePage.getYouTubeIconLoc();
         driver.findElement(iconLoc).click();
         List<String> handles = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(handles.get(1));
-        try {Thread.sleep(2000);} catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        if (handles.size()>1)
+            driver.switchTo().window(handles.get(1));
+        Thread.sleep(2000);
         String actualURL = driver.getCurrentUrl();
-        Assert.assertEquals(actualURL,expectedURL);
-        driver.close();driver.switchTo().window(handles.get(0));
+
+        if (handles.size()>1)
+        {
+            driver.close();
+            driver.switchTo().window(handles.get(0));
+        }
         driver.quit();
+        Assert.assertEquals(actualURL,expectedURL);
     }
 }

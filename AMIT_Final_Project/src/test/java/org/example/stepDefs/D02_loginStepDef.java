@@ -26,19 +26,27 @@ public class D02_loginStepDef {
     }
     @When("^user login with (.*) and (.*)$")
     public void loginWithEmailAndPassword(String email , String password){
+        if (P02_login.registeredUser.equalsIgnoreCase(""))
+            loginPage.setEmailField(email);
+        else
+            loginPage.setEmailField(P02_login.registeredUser);
+        loginPage.setPasswordField(password);
+    }
+    @When("^user login using invalid (.*) and (.*)$")
+    public void loginWithInvalidEmailAndPassword(String email , String password){
         loginPage.setEmailField(email);
         loginPage.setPasswordField(password);
     }
     @And("user press on login button")
-    public void pressLoginButton(){loginPage.loginBtnClick();}
+    public void pressLoginButton() throws InterruptedException {loginPage.loginBtnClick();}
     @Then("user login to the system successfully")
     public void userLoginToSystem(){
         String currentURL = driver.getCurrentUrl();
         boolean URL_Assert = currentURL.equals(homePage.getExpectedURL());
-        driver.quit();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(URL_Assert);
         softAssert.assertTrue(homePage.accountTapIsDisplayed());
+        driver.quit();
         softAssert.assertAll();
     }
     @Then("user could not login to the system")
@@ -46,10 +54,10 @@ public class D02_loginStepDef {
         String message = loginPage.getErrorMessageText();
         boolean actual = message.contains("Login was unsuccessful");
         String color = Color.fromString(loginPage.getErrorMessageColor()).asHex();
-        driver.quit();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(color,"#e4434b");
         softAssert.assertTrue(actual);
+        driver.quit();
         softAssert.assertAll();
     }
 }

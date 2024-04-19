@@ -1,3 +1,4 @@
+@smoke
 Feature:
   Scenario:
     Given Open HomePage to hover

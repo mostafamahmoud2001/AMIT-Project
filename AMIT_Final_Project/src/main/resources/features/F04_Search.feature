@@ -1,3 +1,4 @@
+@smoke
 Feature:
   Scenario Outline: user could search using product name
     Given Open HomePage

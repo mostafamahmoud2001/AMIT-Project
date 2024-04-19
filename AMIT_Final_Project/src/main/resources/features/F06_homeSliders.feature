@@ -1,3 +1,4 @@
+@smoke
 Feature:
   Scenario Outline:
     Given Open HomePage to slider

@@ -41,6 +41,7 @@ public class D01_registerStepDef {
         String newEmail = email.substring(0 ,indexOfAt)+randomNum+email.substring(indexOfAt);
         // split the email int two parts the first part before '@' and second starts from '@' and concatenate the random number between them
         registerPage.setEmailField(newEmail);
+        P02_login.registeredUser = newEmail;
     }
     @And("^user fills Password fields (.*) (.*)$")
     public void fillsPasswords(String password , String confirmPassword){
