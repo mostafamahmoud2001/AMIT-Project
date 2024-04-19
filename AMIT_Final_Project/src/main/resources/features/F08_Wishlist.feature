@@ -1,3 +1,4 @@
+@smoke
 Feature:
   Scenario: 1
     Given Open Home Page to wishlist
