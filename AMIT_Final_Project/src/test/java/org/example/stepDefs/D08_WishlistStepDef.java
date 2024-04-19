@@ -11,6 +11,7 @@ import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.Colors;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
@@ -44,6 +45,17 @@ public class D08_WishlistStepDef {
                 .getCssValue("background-color");
         color = Color.fromString(color).asHex();
         softAssert.assertEquals(color,"#4bb07a");
+        driver.quit();
         softAssert.assertAll();
+    }
+    @Then("open wishlist page")
+    public void openWishlistPage(){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(homePage.getSuccessMessContainerLoc()));
+        driver.findElement(homePage.getWishlistTabLoc()).click();
+        int quantity = Integer.parseInt(driver.findElement(homePage.getItemQuantityLoc()).getAttribute("value"));
+        boolean actual = (quantity > 0);
+        driver.quit();
+        Assert.assertTrue(actual);
     }
 }

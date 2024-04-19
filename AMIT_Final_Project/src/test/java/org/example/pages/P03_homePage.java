@@ -29,8 +29,9 @@ public class P03_homePage {
     By mobileLoc    = By.xpath("//a[text()=\"HTC One M8 Android L 5.0 Lollipop\"]");
     By successMessTextLoc = By.xpath("//p[text()=\"The product has been added to your \"]");
     By successMessContainerLoc = By.xpath("//p[text()=\"The product has been added to your \"]//parent::div");
-
+    By wishlistTabLoc = By.xpath("//li/a/span[text()=\"Wishlist\"]");
     By addToWishlistBtnLoc= By.id("add-to-wishlist-button-18");
+    By itemQuantityLoc  = By.className("qty-input");
     List<By> categories   = new ArrayList<By>(){
     {
         add(By.xpath("//ul[@class=\"top-menu notmobile\"]/li/a[text()=\"Computers \"]"));
@@ -53,6 +54,9 @@ public class P03_homePage {
     public By getAddToWishlistBtnLoc() {return addToWishlistBtnLoc;}
     public By getSuccessMessTextLoc() {return successMessTextLoc;}
     public By getSuccessMessContainerLoc() {return successMessContainerLoc;}
+    public By getWishlistTabLoc() {return wishlistTabLoc;}
+
+    public By getItemQuantityLoc() {return itemQuantityLoc;}
 
     public By getMobileLoc() {return mobileLoc;}
 
